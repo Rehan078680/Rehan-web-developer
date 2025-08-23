@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rehan | Web Developer Portfolio</title>
+  <meta name="description" content="Rehan - Web Developer. I build fast, modern, and mobile-friendly websites. Hire me for professional websites at affordable rates.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling */
+    }
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+    .moon {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff, #b7c2dd 70%);
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
+      overflow: hidden;
+    }
+    .moon::before, .moon::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .moon::before {
+      left: 0;
+      animation: splitLeft 2s forwards;
+    }
+    .moon::after {
+      right: 0;
+      animation: splitRight 2s forwards;
+    }
+    @keyframes splitLeft {
+      0% { transform: translateX(0) rotate(0); opacity:1; }
+      80% { transform: translateX(-80px) rotate(-15deg); opacity:1; }
+      100% { transform: translateX(-80px) rotate(-15deg); opacity:0; }
+    }
+    @keyframes splitRight {
+      0% { transform: translateX(0) rotate(0); opacity:1; }
+      80% { transform: translateX(80px) rotate(15deg); opacity:1; }
+      100% { transform: translateX(80px) rotate(15deg); opacity:0; }
+    }
+    .loading-text {
+      color: white;
+      margin-top: 20px;
+      font-size: 14px;
+      letter-spacing: 4px;
+      animation: fadeText 2s forwards;
+    }
+    @keyframes fadeText {
+      0% { opacity: 0; }
+      40% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    /* Hide site until preloader ends */
+    #content { display: none; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="moon"></div>
+  <div class="loading-text">Welcome...</div>
+</div>
+
+<!-- Website Content -->
+<div id="content">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 bg-white shadow z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
+    <!-- Logo -->
+    <h1 class="text-2xl font-bold text-blue-600">Rehan</h1>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex gap-6">
+      <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+      <li><a href="#about" class="hover:text-blue-600">About</a></li>
+      <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+      <li><a href="#portfolio" class="hover:text-blue-600">Portfolio</a></li>
+      <li><a href="#testimonials" class="hover:text-blue-600">Testimonials</a></li>
+      <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+    </ul>
+
+    <!-- Mobile Button -->
+    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="menu" class="hidden flex-col md:hidden bg-white shadow-lg">
+    <a href="#home" class="px-6 py-3 border-b hover:bg-gray-100">Home</a>
+    <a href="#about" class="px-6 py-3 border-b hover:bg-gray-100">About</a>
+    <a href="#services" class="px-6 py-3 border-b hover:bg-gray-100">Services</a>
+    <a href="#portfolio" class="px-6 py-3 border-b hover:bg-gray-100">Portfolio</a>
+    <a href="#testimonials" class="px-6 py-3 border-b hover:bg-gray-100">Testimonials</a>
+    <a href="#contact" class="px-6 py-3 hover:bg-gray-100">Contact</a>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu");
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
+
+  <!-- Hero Section -->
+  <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center" 
+    style="background-image: url('Rehan.png');">
+
+    <div class="bg-black bg-opacity-50 p-6 rounded-xl mt-20">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">
+        Hi, I'm <span class="text-blue-400">Rehan</span>
+      </h1>
+      <p id="typing" class="text-lg md:text-2xl mb-6 text-gray-200"></p>
+      <a href="https://wa.me/918081103291" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">
+        Hire Me
+      </a>
+    </div>
+  </section>
+       
+  <!-- About -->
+  <section id="about" class="py-16 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <p class="text-lg">
+      I'm a web developer specializing in HTML, CSS, JS, and WordPress.
+      I help businesses create beautiful and responsive websites.
+    </p>
+  </section>
+  
+  <!-- Services -->
+  <section id="services" class="py-16 px-6 bg-blue-600 text-white">
+    <h2 class="text-3xl font-bold text-center mb-10">Services</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="bg-white text-gray-800 shadow-lg p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">💻</div>
+        <h3 class="text-xl font-semibold mb-2">Custom Websites</h3>
+        <p>Professional and modern websites built with latest tech.</p>
+      </div>
+      <div class="bg-white text-gray-800 shadow-lg p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">⚡</div>
+        <h3 class="text-xl font-semibold mb-2">Affordable & Fast</h3>
+        <p>Get a website at a budget-friendly price with quick delivery.</p>
+      </div>
+      <div class="bg-white text-gray-800 shadow-lg p-6 rounded-xl text-center">
+        <div class="text-4xl mb-3">🎨</div>
+        <h3 class="text-xl font-semibold mb-2">Website Redesign</h3>
+        <p>Modernize your old website with a fresh look.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-16 px-6 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-10">My Work</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="website1.png" alt="Project 1" class="w-full">
+        <div class="p-4">
+          <h3 class="font-semibold">Business Website</h3>
+          <p class="text-sm text-gray-600">A modern responsive business website.</p>
+          <a href="https://rehan078680.github.io/Couching-Center/" target="_blank" class="text-blue-600 text-sm">View Live</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="images/project2.png" alt="Project 2" class="w-full">
+        <div class="p-4">
+          <h3 class="font-semibold">E-Commerce Website</h3>
+          <p class="text-sm text-gray-600">Online shopping site with cart features.</p>
+          <a href="https://example.com" target="_blank" class="text-blue-600 text-sm">View Live</a>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="images/project3.png" alt="Project 3" class="w-full">
+        <div class="p-4">
+          <h3 class="font-semibold">Portfolio Website</h3>
+          <p class="text-sm text-gray-600">A clean and professional personal site.</p>
+          <a href="https://example.com" target="_blank" class="text-blue-600 text-sm">View Live</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-16 px-6 text-center bg-white">
+    <h2 class="text-3xl font-bold mb-10">What Clients Say</h2>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="bg-gray-100 p-6 rounded-xl shadow">
+        <p>"Rehan built my coaching center site in 3 days. Super fast and looks amazing!"</p>
+        <h4 class="mt-3 font-semibold">- Client 1</h4>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-xl shadow">
+        <p>"Affordable and professional work. Highly recommended for startups."</p>
+        <h4 class="mt-3 font-semibold">- Client 2</h4>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-xl shadow">
+        <p>"Great communication, modern design, and delivered before deadline."</p>
+        <h4 class="mt-3 font-semibold">- Client 3</h4>
+      </div>
+    </div>
+  </section>
+<div class="flex justify-center gap-4 mt-4">
+  <a href="https://www.instagram.com/itsrehan4real?igsh=MWh6ZWQxZ3dyYWlmaQ==" target="_blank">🐙 INSTAGRAM</a>
+  <a href="https://linkedin.com/in/your-profile" target="_blank">
+</div>  
+  <!--Contact ---->
+  <section id="contact" class="py-16 px-6 bg-blue-100 text-center">
+    <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+    <p class="mb-6 text-lg">Let's build your dream website together!</p>
+    <div class="flex flex-col gap-4 items-center">
+      <a href="mailto:devillivesop0@gmail.com" class="text-blue-600">📧 devillivesop0@gmail.com</a>
+      <a href="tel:+918081103291" class="text-blue-600">📞 +91 80811 03291</a>
+      <a href="https://wa.me/918081103291" class="text-blue-600">💬 WhatsApp Me</a>
+    </div>
+    <div class="mt-8">
+      <a href="https://wa.me/918081103291" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">
+        Let's Work Together 🚀
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-700 text-sm bg-gray-50">
+    © <script>document.write(new Date().getFullYear())</script> Rehan. All Rights Reserved.
+  </footer>
+</div>
+
+<!-- Scripts -->
+<script>
+  // Preloader hide
+  setTimeout(() => {
+    document.getElementById("preloader").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.body.style.overflow = "auto";
+  }, 2200);
+
+  // Typing effect
+  const text = "I build modern, fast & mobile-friendly websites 🚀";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 50);
+    }
+  }
+  window.onload = typeEffect;
+</script>
+</body>
+</html>
